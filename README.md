@@ -13,6 +13,6 @@ cd home
 gulp
 cd ..
 npm start
-``
+```
 
 Browse at http://localhost:8666
