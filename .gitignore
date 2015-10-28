@@ -1,0 +1,8 @@
+# Dependency directory
+node_modules
+# JetBrains
+*.iml
+.idea
+
+# Build
+build
