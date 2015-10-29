@@ -1,9 +1,7 @@
 import { IHomeService } from './IHomeService';
 
 export default class HomeService implements IHomeService {
-    constructor() {}
-
-    returnFirstLetter(input:string):string {
+    public returnFirstLetter(input:string):string {
         if (input && input.length > 0) {
             return input[0];
         }
@@ -11,4 +9,3 @@ export default class HomeService implements IHomeService {
         return '';
     }
 }
-

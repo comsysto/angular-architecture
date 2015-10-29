@@ -3,18 +3,18 @@ import * as angular from 'angular';
 import registerDirectives from './directives/appDirectives';
 import registerServices from './services/appServices';
 
-// App name
-export const homeAppName = 'homeApp';
+// app name
+export const homeAppName:string = 'homeApp';
 
-// Register module, directives, services, etc.
+// register module, directives, services, etc.
 angular.module(homeAppName, []);
 registerDirectives(homeAppName);
 registerServices(homeAppName);
 
-// Bootstrap Angular
+// bootstrap Angular
 let appAngularConfig:angular.IAngularBootstrapConfig = {
-    strictDi: true,
-    debugInfoEnabled: true
+    debugInfoEnabled: true,
+    strictDi: true
 };
 
 angular.bootstrap(
@@ -22,6 +22,3 @@ angular.bootstrap(
     ['homeApp'],
     appAngularConfig
 );
-
-
-

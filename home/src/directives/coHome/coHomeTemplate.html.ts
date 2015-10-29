@@ -1,4 +1,4 @@
-export const html =
+export const html:string =
         `
     <div>
         <p>This directive works. 2</p>

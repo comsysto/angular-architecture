@@ -1,5 +1,5 @@
-import {IHomeService} from "../../../services/HomeService/IHomeService";
-import HomeService from "../../../services/HomeService/HomeService";
+import {IHomeService} from '../../../services/HomeService/IHomeService';
+import HomeService from '../../../services/HomeService/HomeService';
 
 describe('coHome', () => {
     let $compile:ng.ICompileService,
@@ -22,8 +22,8 @@ describe('coHome', () => {
 
     it('should test a directive', () => {
         $rootScope.someInput = 'this is working';
-        var template = angular.element('<div data-co-home data-testing="someInput"></div>');
-        var element = $compile(template)($rootScope);
+        let template:angular.IAugmentedJQuery = angular.element('<div data-co-home data-testing="someInput"></div>');
+        let element:angular.IAugmentedJQuery = $compile(template)($rootScope);
 
         $rootScope.$digest();
         expect(element.html()).toContain('this is working');

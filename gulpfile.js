@@ -11,6 +11,7 @@ var sourcemaps = require('gulp-sourcemaps');
 var path = require('path');
 var watch = require('gulp-watch');
 var karma = require('karma').Server;
+var tslint = require('gulp-tslint');
 
 module.exports = function (config) {
     var tsProject = ts.createProject({
@@ -28,11 +29,9 @@ module.exports = function (config) {
     });
 
     // compile TypeScript
-    gulp.task('ts', ['clean'], function () {
-        var tsResult = gulp.src([
-                'common/src/**/*.ts',
-                path.join(config.path, 'src/**/*.ts')
-            ])
+    gulp.task('ts', ['lint', 'clean'], function () {
+        var tsResult = gulp
+            .src(path.join(config.path, 'src/**/*.ts'))
             .pipe(sourcemaps.init()) // with Sourcemaps
             .pipe(ts(tsProject));
 
@@ -94,6 +93,13 @@ module.exports = function (config) {
         }, done).start();
     });
 
+    gulp.task('lint', function() {
+        return gulp
+            .src(path.join(config.path, 'src/**/*.ts'))
+            .pipe(tslint())
+            .pipe(tslint.report('verbose'));
+    });
+
     // watch for file changes
     gulp.task('watch', ['test'], function () {
         var watchPath = [
@@ -101,7 +107,7 @@ module.exports = function (config) {
             path.join(config.path, 'test/**/*.ts')
         ];
         if (config.appName !== 'common') {
-            watchPath = watchPath.concat(path.join(__dirname, 'common/build/**/*.js'));
+            watchPath = watchPath.concat(path.join(__dirname, 'common/build/compiled/*.js'));
         }
 
         return watch(watchPath, function() {

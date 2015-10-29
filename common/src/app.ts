@@ -2,6 +2,6 @@
 
 import * as angular from 'angular';
 
-export const commonAppName = 'common';
+export const commonAppName:string = 'common';
 
 angular.module(commonAppName, []);

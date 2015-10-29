@@ -22,6 +22,7 @@
     "express": "^4.13.3",
     "gulp": "^3.9.0",
     "gulp-sourcemaps": "^1.6.0",
+    "gulp-tslint": "^3.4.0",
     "gulp-typescript": "^2.9.2",
     "gulp-watch": "^4.3.5",
     "jasmine": "^2.3.2",

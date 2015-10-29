@@ -1,5 +1,5 @@
 import HomeService from '../../../services/HomeService/HomeService';
-import {IHomeService} from "../../../services/HomeService/IHomeService";
+import {IHomeService} from '../../../services/HomeService/IHomeService';
 
 describe('HomeService', () => {
     let homeService:IHomeService;
