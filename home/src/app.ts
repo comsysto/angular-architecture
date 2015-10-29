@@ -8,8 +8,8 @@ export const homeAppName = 'homeApp';
 
 // Register module, directives, services, etc.
 angular.module(homeAppName, []);
-registerDirectives();
-registerServices();
+registerDirectives(homeAppName);
+registerServices(homeAppName);
 
 // Bootstrap Angular
 let appAngularConfig:angular.IAngularBootstrapConfig = {

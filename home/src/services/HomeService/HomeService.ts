@@ -1,4 +1,3 @@
-import * as angular from 'angular';
 import { IHomeService } from './IHomeService';
 
 export default class HomeService implements IHomeService {
