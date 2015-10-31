@@ -5,7 +5,10 @@ describe('HomeService', () => {
     let homeService:IHomeService;
 
     beforeEach(() => {
-        homeService = new HomeService();
+        let pageValueExtractorServiceMock:any = {
+            getPageValue: ():void => {}
+        };
+        homeService = new HomeService(pageValueExtractorServiceMock);
     });
 
     it('Should return the first letter', () => {

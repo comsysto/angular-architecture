@@ -7,8 +7,18 @@ describe('coHome', () => {
         homeServiceMock:IHomeService;
 
     beforeEach(() => {
-        homeServiceMock = new HomeService();
+        let pageValueExtractorServiceMock:any = {
+            getPageValue: ():void => {}
+        };
+        spyOn(pageValueExtractorServiceMock, 'getPageValue');
+        homeServiceMock = new HomeService(pageValueExtractorServiceMock);
         spyOn(homeServiceMock, 'returnFirstLetter').and.returnValue('mocked');
+        spyOn(homeServiceMock, 'getPageValue').and.returnValue({
+            about: {
+                name: 'Bla',
+                surname: 'Bli'
+            }
+        });
 
         angular.mock.module('homeApp', {
             HomeService: homeServiceMock

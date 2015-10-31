@@ -4,7 +4,7 @@ import {IHomeService} from '../../services/HomeService/IHomeService';
 
 coHome.$inject = ['HomeService'];
 
-function coHome(HomeService:IHomeService):angular.IDirective {
+function coHome(homeService:IHomeService):angular.IDirective {
     'use strict';
 
     return {
@@ -14,9 +14,11 @@ function coHome(HomeService:IHomeService):angular.IDirective {
                     return $scope.testing;
                 },
                 () => {
-                    $scope.firstLetter = HomeService.returnFirstLetter($scope.testing);
+                    $scope.firstLetter = homeService.returnFirstLetter($scope.testing);
                 }
             );
+
+            $scope.about = homeService.getPageValue().about;
         },
         replace: true,
         scope: {

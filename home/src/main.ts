@@ -1,13 +1,13 @@
 ///<reference path="../../typings/tsd.d.ts"/>
 import * as angular from 'angular';
-import registerDirectives from './directives/appDirectives';
-import registerServices from './services/appServices';
+import registerDirectives from './directives/homeDirectives';
+import registerServices from './services/homeServices';
 
 // app name
 export const homeAppName:string = 'homeApp';
 
 // register module, directives, services, etc.
-angular.module(homeAppName, []);
+angular.module(homeAppName, ['common']);
 registerDirectives(homeAppName);
 registerServices(homeAppName);
 
