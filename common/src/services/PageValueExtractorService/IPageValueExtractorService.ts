@@ -1,3 +1,3 @@
 export interface IPageValueExtractorService {
-    getPageValue<T>(pageValueInterface:T): T;
+    getPageValue<T>(): T;
 }

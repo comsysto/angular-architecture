@@ -48,7 +48,7 @@ module.exports = function (config) {
     // prepare files for browser with Browserify
     gulp.task('js', ['ts'], function () {
         return browserify({
-            entries: path.join(config.path, 'build/js/app.js'),
+            entries: path.join(config.path, 'build/js/main.js'),
             debug: true
         })
             // ignore required module (for libraries which you include yourself)
