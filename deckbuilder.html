@@ -1,0 +1,283 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Deck builder</title>
+
+    <link rel="stylesheet" href="common/libs/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="common/libs/bootstrap/css/bootstrap-theme.min.css">
+    <style type="text/css">
+        div#deck div.chosen-cards {
+            border: #ccc dashed 5px;
+            min-height: 150px;
+            padding: 20px;
+            text-align: center;
+        }
+        div#deck ul {
+            list-style: none;
+            margin: 0;
+        }
+        div#deck li {
+            float: left;
+            margin-left: -30px;
+            position: relative;
+        }
+        div#deck li img {
+            height: 100px;
+            width: auto;
+            transition: ;
+        }
+        div#deck li:hover img {
+            height: auto;
+            position: absolute;
+            z-index: 10;
+        }
+        div.card p.selected {
+            -webkit-filter: drop-shadow(0px 0px 30px rgba(0,0,0,1));
+            filter: url(#drop-shadow);
+            -ms-filter: "progid:DXImageTransform.Microsoft.Dropshadow(OffX=0, OffY=0, Color='#000')";
+            filter: "progid:DXImageTransform.Microsoft.Dropshadow(OffX=0, OffY=0, Color='#000')";
+        }
+        div.card img {
+            cursor: pointer;
+            height: 350px;
+            width: auto;
+        }
+        div.card-list-filter {
+            padding-top: 15px;
+        }
+
+    </style>
+</head>
+<body>
+<div id="coDeckBuilderApp">
+    <div data-co-deck-builder></div>
+</div>
+
+<script type="application/json" id="pageValue">
+    {
+        "cards": [
+            {
+                "name": "The Tidecaller",
+                "cost": 3,
+                "attack": 1,
+                "hp": 3,
+                "rarity": "LEGENDARY",
+                "image": "tidecaller.png",
+                "selected": false
+            },
+            {
+                "name": "Silver Hand Horse",
+                "cost": 2,
+                "attack": 3,
+                "hp": 2,
+                "rarity": "RARE",
+                "image": "silver-hand-horse.png",
+                "selected": false
+            },
+            {
+                "name": "Lord Falconcrest",
+                "cost": 7,
+                "attack": 5,
+                "hp": 7,
+                "rarity": "LEGENDARY",
+                "image": "lord-falconcrest.png",
+                "selected": false
+            },
+            {
+                "name": "Ancestors Emperor",
+                "cost": 8,
+                "attack": 4,
+                "hp": 10,
+                "rarity": "LEGENDARY",
+                "image": "ancestors-emperor.png",
+                "selected": false
+            },
+            {
+                "name": "Blood Mage",
+                "cost": 4,
+                "attack": 4,
+                "hp": 4,
+                "rarity": "EPIC",
+                "image": "blood-mage.png",
+                "selected": false
+            },
+            {
+                "name": "Etheral Manipulator",
+                "cost": 5,
+                "attack": 3,
+                "hp": 3,
+                "rarity": "EPIC",
+                "image": "etheral-manipulator.png",
+                "selected": false
+            },
+            {
+                "name": "Zorchal the Shadowseer",
+                "cost": 6,
+                "attack": 6,
+                "hp": 7,
+                "rarity": "LEGENDARY",
+                "image": "zorchal-the-shadowseer.png",
+                "selected": false
+            },
+            {
+                "name": "Bounty Hunter",
+                "cost": 2,
+                "attack": 2,
+                "hp": 1,
+                "rarity": "EPIC",
+                "image": "bounty-hunter.png",
+                "selected": false
+            },
+            {
+                "name": "Transform",
+                "cost": 5,
+                "attack": 0,
+                "hp": 0,
+                "rarity": "RARE",
+                "image": "transform.png",
+                "selected": false
+            },
+            {
+                "name": "Burning Blademaster",
+                "cost": 6,
+                "attack": 4,
+                "hp": 7,
+                "rarity": "RARE",
+                "image": "burning-blademaster.png",
+                "selected": false
+            },
+            {
+                "name": "Mass Teleport",
+                "cost": 9,
+                "attack": 0,
+                "hp": 0,
+                "rarity": "RARE",
+                "image": "mass-teleport.png",
+                "selected": false
+            },
+            {
+                "name": "High Overlord Saufang",
+                "cost": 13,
+                "attack": 6,
+                "hp": 8,
+                "rarity": "LEGENDARY",
+                "image": "high-overlord-saufang.png",
+                "selected": false
+            },
+            {
+                "name": "Fungal Giant",
+                "cost": 20,
+                "attack": 8,
+                "hp": 8,
+                "rarity": "EPIC",
+                "image": "fungal-giant.png",
+                "selected": false
+            },
+            {
+                "name": "Silver Hand Commander",
+                "cost": 6,
+                "attack": 4,
+                "hp": 5,
+                "rarity": "COMMON",
+                "image": "silver-hand-commander.png",
+                "selected": false
+            },
+            {
+                "name": "Barador Wildhammer",
+                "cost": 5,
+                "attack": 4,
+                "hp": 4,
+                "rarity": "LEGENDARY",
+                "image": "barador-wildhammer.png",
+                "selected": false
+            },
+            {
+                "name": "Mana Channeler",
+                "cost": 4,
+                "attack": 3,
+                "hp": 5,
+                "rarity": "EPIC",
+                "image": "mana-chaneller.png",
+                "selected": false
+            },
+            {
+                "name": "Forsaken Far-eyes",
+                "cost": 2,
+                "attack": 2,
+                "hp": 2,
+                "rarity": "RARE",
+                "image": "forsaken-fareyes.png",
+                "selected": false
+            },
+            {
+                "name": "Grace",
+                "cost": 1,
+                "attack": 0,
+                "hp": 0,
+                "rarity": "COMMON",
+                "image": "grace.png",
+                "selected": false
+            },
+            {
+                "name": "Chained Ruby Drake",
+                "cost": 4,
+                "attack": 6,
+                "hp": 6,
+                "rarity": "COMMON",
+                "image": "chained-ruby-drake.png",
+                "selected": false
+            },
+            {
+                "name": "Archmade Khadgar",
+                "cost": 7,
+                "attack": 5,
+                "hp": 7,
+                "rarity": "LEGENDARY",
+                "image": "archmage-khadgar.png",
+                "selected": false
+            },
+            {
+                "name": "Deathbringer Saurfang",
+                "cost": 5,
+                "attack": 5,
+                "hp": 5,
+                "rarity": "LEGENDARY",
+                "image": "deathbringer-saurfang.png",
+                "selected": false
+            },
+            {
+                "name": "Balaena",
+                "cost": 8,
+                "attack": 6,
+                "hp": 8,
+                "rarity": "LEGENDARY",
+                "image": "balaena.png",
+                "selected": false
+            },
+            {
+                "name": "Dread Captain DeMeza",
+                "cost": 8,
+                "attack": 6,
+                "hp": 8,
+                "rarity": "LEGENDARY",
+                "image": "dread-captain-demeza.png",
+                "selected": false
+            },
+            {
+                "name": "",
+                "cost": 0,
+                "attack": 0,
+                "hp": 0,
+                "rarity": "",
+                "image": ".png",
+                "selected": false
+            }
+        ]
+    }
+</script>
+<script src="common/libs/angular-1.4.7.js"></script>
+<script src="common/build/compiled/commonBundle.js"></script>
+<script src="deckbuilder/build/compiled/homeBundle.js"></script>
+</body>
+</html>
