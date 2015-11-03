@@ -10,9 +10,9 @@ export default class LocalStorageService implements ILocalStorageService {
     }
 
     public loadSettings<T>(key:string):T {
-        let objectData:Object = localStorage.getItem(key);
+        let objectData:string = localStorage.getItem(key);
         if (objectData) {
-            return objectData as T;
+            return JSON.parse(objectData) as T;
         }
 
         return null;

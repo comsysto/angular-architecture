@@ -1,6 +1,13 @@
 h2 {
     margin-top: 40px;
 }
+.add-deck {
+    margin-top: 40px;
+}
+.deck-list .deck img {
+    height: 350px;
+    width: auto;
+}
 div.card-deck div.chosen-cards {
     border: #ccc dashed 5px;
     min-height: 150px;
@@ -39,4 +46,13 @@ div.card img {
 }
 div.card-list-filter {
     margin-top: 40px;
+}
+
+footer {
+    font-size: 12px;
+}
+
+footer .row {
+    border-top: 1px solid #ddd;
+    padding-top: 20px;
 }

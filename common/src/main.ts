@@ -9,3 +9,4 @@ export const appName:string = 'common';
 angular.module(appName, []);
 registerServices(appName);
 registerDirectives(appName);
+

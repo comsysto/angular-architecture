@@ -15,7 +15,27 @@ export default class DataService implements IDataService {
     }
 
     public getDecks():IDeck[] {
-        return this.dataModel.getDecks();
+        let decks:IDeck[] = this.dataModel.getDecks();
+
+        if (!decks) {
+            return [];
+        }
+
+        return decks;
+    }
+
+    public createNewDeck(name:string):void {
+        let decks:IDeck[] = this.dataModel.getDecks();
+        let id:string = new Date().getTime().toString();
+        let newDeck:IDeck = {
+            cards: [],
+            id: id,
+            name: name
+        };
+        decks = decks ? decks.concat(newDeck) : [newDeck];
+
+        this.localStorageService.saveSettings<IDeck[]>('decks', decks);
+        this.dataModel.setDecks(decks);
     }
 }
 
