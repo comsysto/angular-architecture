@@ -2,51 +2,11 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Deck builder</title>
+    <title>Angular Architecture - Deck builder</title>
 
-    <link rel="stylesheet" href="common/libs/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="common/libs/bootstrap/css/bootstrap-theme.min.css">
-    <style type="text/css">
-        div#deck div.chosen-cards {
-            border: #ccc dashed 5px;
-            min-height: 150px;
-            padding: 20px;
-            text-align: center;
-        }
-        div#deck ul {
-            list-style: none;
-            margin: 0;
-        }
-        div#deck li {
-            float: left;
-            margin-left: -30px;
-            position: relative;
-        }
-        div#deck li img {
-            height: 100px;
-            width: auto;
-        }
-        div#deck li:hover img {
-            height: auto;
-            position: absolute;
-            z-index: 10;
-        }
-        div.card p.selected {
-            -webkit-filter: drop-shadow(0px 0px 30px rgba(0,0,0,1));
-            filter: url(#drop-shadow);
-            -ms-filter: "progid:DXImageTransform.Microsoft.Dropshadow(OffX=0, OffY=0, Color='#000')";
-            filter: "progid:DXImageTransform.Microsoft.Dropshadow(OffX=0, OffY=0, Color='#000')";
-        }
-        div.card img {
-            cursor: pointer;
-            height: 350px;
-            width: auto;
-        }
-        div.card-list-filter {
-            padding-top: 15px;
-        }
-
-    </style>
+    <link rel="stylesheet" href="/common/libs/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/common/libs/bootstrap/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="/css/styles.css">
 </head>
 <body>
     <div id="coDeckBuilderApp">
@@ -264,19 +224,136 @@
                     "selected": false
                 },
                 {
-                    "name": "",
-                    "cost": 0,
-                    "attack": 0,
-                    "hp": 0,
-                    "rarity": "",
-                    "image": ".png",
+                    "name": "Remulos",
+                    "cost": 5,
+                    "attack": 3,
+                    "hp": 7,
+                    "rarity": "LEGENDARY",
+                    "image": "remulos.png",
+                    "selected": false
+                },
+                {
+                    "name": "Northrend Scholar",
+                    "cost": 3,
+                    "attack": 2,
+                    "hp": 3,
+                    "rarity": "COMMON",
+                    "image": "northrend-scholar.png",
+                    "selected": false
+                },
+                {
+                    "name": "Greenskin Ambusher",
+                    "cost": 5,
+                    "attack": 6,
+                    "hp": 4,
+                    "rarity": "COMMON",
+                    "image": "greenskin-ambusher.png",
+                    "selected": false
+                },
+                {
+                    "name": "Sneaky Scoundrel",
+                    "cost": 5,
+                    "attack": 5,
+                    "hp": 5,
+                    "rarity": "RARE",
+                    "image": "sneaky-scoundrel.png",
+                    "selected": false
+                },
+                {
+                    "name": "Keeper of Time",
+                    "cost": 4,
+                    "attack": 3,
+                    "hp": 3,
+                    "rarity": "RARE",
+                    "image": "keeper-of-time.png",
+                    "selected": false
+                },
+                {
+                    "name": "Pyromaniac",
+                    "cost": 5,
+                    "attack": 5,
+                    "hp": 5,
+                    "rarity": "EPIC",
+                    "image": "pyromaniac.png",
+                    "selected": false
+                },
+                {
+                    "name": "Chicken Transmutator",
+                    "cost": 6,
+                    "attack": 6,
+                    "hp": 7,
+                    "rarity": "LEGENDARY",
+                    "image": "chicken-transmutator.png",
+                    "selected": false
+                },
+                {
+                    "name": "Cho'gall",
+                    "cost": 5,
+                    "attack": 5,
+                    "hp": 4,
+                    "rarity": "LEGENDARY",
+                    "image": "chogall.png",
+                    "selected": false
+                },
+                {
+                    "name": "Nielas Aran",
+                    "cost": 5,
+                    "attack": 6,
+                    "hp": 4,
+                    "rarity": "LEGENDARY",
+                    "image": "nielas-aran.png",
+                    "selected": false
+                },
+                {
+                    "name": "Arkaeda, the Recaller",
+                    "cost": 9,
+                    "attack": 9,
+                    "hp": 8,
+                    "rarity": "LEGENDARY",
+                    "image": "arkaeda-the-recaller.png",
+                    "selected": false
+                },
+                {
+                    "name": "Stag of Malorne",
+                    "cost": 3,
+                    "attack": 3,
+                    "hp": 3,
+                    "rarity": "EPIC",
+                    "image": "stag-of-malorne.png",
+                    "selected": false
+                },
+                {
+                    "name": "Witherbark Defender",
+                    "cost": 4,
+                    "attack": 3,
+                    "hp": 5,
+                    "rarity": "RARE",
+                    "image": "witherbark-defender.png",
+                    "selected": false
+                },
+                {
+                    "name": "Drek'Thar",
+                    "cost": 5,
+                    "attack": 4,
+                    "hp": 6,
+                    "rarity": "LEGENDARY",
+                    "image": "drekthar.png",
+                    "selected": false
+                },
+                {
+                    "name": "Dezco the Sunwalker",
+                    "cost": 6,
+                    "attack": 5,
+                    "hp": 5,
+                    "rarity": "LEGENDARY",
+                    "image": "dezco-the-sunwalker.png",
                     "selected": false
                 }
             ]
         }
     </script>
-    <script src="common/libs/angular-1.4.7.js"></script>
-    <script src="common/build/compiled/commonBundle.js"></script>
-    <script src="deckbuilder/build/compiled/homeBundle.js"></script>
+    <script src="/common/libs/angular-1.4.7.js"></script>
+    <script src="/common/build/compiled/commonBundle.js"></script>
+    <script src="/deckbuilder/build/compiled/deckbuilderBundle.js"></script>
 </body>
 </html>

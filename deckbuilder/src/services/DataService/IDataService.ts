@@ -1,4 +1,4 @@
-import {ICard} from '../../models/ICard';
+import {ICard} from '../../../../common/src/models/ICard';
 
 export interface IDataService {
     getFilteredCardList(): ICard[];

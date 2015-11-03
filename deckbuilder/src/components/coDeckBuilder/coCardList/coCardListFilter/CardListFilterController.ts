@@ -1,5 +1,5 @@
 import {IFacadeService} from '../../../../services/FacadeService/IFacadeService';
-import {ICard} from '../../../../models/ICard';
+import {ICard} from '../../../../../../common/src/models/ICard';
 
 export default class CardListFilterController {
     public filter:string;

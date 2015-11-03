@@ -1,13 +1,13 @@
 export const html:string =
     `
     <div>
-        <div id="deck" class="container">
+        <div class="card-deck container">
             <div class="row">
                 <h2>Your chosen deck</h2>
                 <div class="chosen-cards clearfix">
                     <ul data-ng-if="deckController.getChosenCards().length > 0">
                         <li data-ng-repeat="card in deckController.getChosenCards()">
-                            <img data-ng-src="img/cards/{{ card.image }}"
+                            <img data-ng-src="/img/cards/{{ card.image }}"
                                 alt="{{ card.name }}">
                         </li>
                     </ul>

@@ -1,7 +1,7 @@
 import {IDataService} from './IDataService';
 import {IPageValueExtractorService} from '../../../../common/src/services/PageValueExtractorService/IPageValueExtractorService';
 import {IDeckBuilderPageValue} from '../../models/IDeckBuilderPageValue';
-import {ICard} from '../../models/ICard';
+import {ICard} from '../../../../common/src/models/ICard';
 
 export default class DataService implements IDataService {
     private pageValueExtractorService:IPageValueExtractorService;

@@ -1,4 +1,4 @@
 require('../gulpfile')({
     path: __dirname,
-    appName: 'deckbuilder'
+    appName: 'deckmanager'
 });

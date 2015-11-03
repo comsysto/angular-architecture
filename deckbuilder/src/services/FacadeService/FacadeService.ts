@@ -1,5 +1,5 @@
 import {IFacadeService} from './IFacadeService';
-import {ICard} from '../../models/ICard';
+import {ICard} from '../../../../common/src/models/ICard';
 import {IDataService} from '../DataService/IDataService';
 
 export default class FacadeService implements IFacadeService {
