@@ -11,6 +11,7 @@ export const html:string =
                             class="add-deck btn btn-info">+ Add new deck</span>
                     </div>
                 </div>
+                <hr>
                 <div class="row">
                     <div data-ng-if="deckListController.getDecks().length > 0">
                         <div data-ng-repeat="deck in deckListController.getDecks() track by deck.id"
