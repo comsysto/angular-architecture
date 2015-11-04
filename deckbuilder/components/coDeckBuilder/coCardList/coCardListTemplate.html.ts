@@ -15,7 +15,7 @@ export const html:string =
                     data-ng-click="cardListController.toggleCard(card)"
                     class="card text-center col-xs-12 col-sm-6 col-md-4 col-lg-3">
                     <p data-ng-class="{ 'selected': card.selected }">
-                        <img data-ng-src="/img/cards/{{ card.image }}"
+                        <img data-ng-src="img/cards/{{ card.image }}"
                         alt="{{ card.name }}">
                     </p>
                 </div>

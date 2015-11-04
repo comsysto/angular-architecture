@@ -27,7 +27,8 @@ module.exports = function (config) {
     gulp.task('clean', function () {
         del.sync([
             path.join(__dirname, 'build', config.appName),
-            path.join(__dirname, 'appTypings', config.appName)
+            path.join(__dirname, 'appTypings', config.appName),
+            path.join(__dirname, 'compiled', config.appName)
         ], {
             force: true
         });
@@ -66,7 +67,7 @@ module.exports = function (config) {
             // save it as "{{applicationName}}Bundle.js"
             .pipe(source(path.join(config.appName + 'Bundle.js')))
             // in the application's "compiled" folder
-            .pipe(gulp.dest(path.join(__dirname, 'build', config.appName, 'compiled')));
+            .pipe(gulp.dest(path.join(__dirname, 'compiled', config.appName)));
     });
 
     // run unit tests
@@ -79,11 +80,11 @@ module.exports = function (config) {
         ];
         // unless we're testing the common vertical, include it as an extra
         if (config.appName !== 'common') {
-            files = files.concat([path.join(__dirname, 'build/common/compiled/commonBundle.js')])
+            files = files.concat([path.join(__dirname, 'compiled/common/commonBundle.js')])
         }
         // application, the actual tests
         files = files.concat([
-            path.join(__dirname, 'build', config.appName, 'compiled/**/*.js'), // include the application
+            path.join(__dirname, 'compiled', config.appName, '**/*.js'), // include the application
             path.join(__dirname, 'build', config.appName, 'tests/**/*.spec.js') // test files
         ]);
 
@@ -120,7 +121,7 @@ module.exports = function (config) {
             path.join(config.path, '**/*.ts')
         ];
         if (config.appName !== 'common') {
-            watchPath = watchPath.concat(path.join(__dirname, 'build/common/compiled/*.js'));
+            watchPath = watchPath.concat(path.join(__dirname, 'compiled/common/**/*.js'));
         }
 
         return watch(watchPath, function () {

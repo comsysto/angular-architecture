@@ -7,7 +7,7 @@ export const html:string =
                 <div class="chosen-cards clearfix">
                     <ul data-ng-if="deckController.getChosenCards().length > 0">
                         <li data-ng-repeat="card in deckController.getChosenCards()">
-                            <img data-ng-src="/img/cards/{{ card.image }}"
+                            <img data-ng-src="img/cards/{{ card.image }}"
                                 alt="{{ card.name }}">
                         </li>
                     </ul>

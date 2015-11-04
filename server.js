@@ -6,10 +6,8 @@ var app = express(),
 app.use('/img', express.static('./img'));
 app.use('/css', express.static('./css'));
 app.use('/libs', express.static('./libs'));
-app.use('/build', express.static('./build'));
-app.use('/common', express.static('./common'));
-app.use('/deckbuilder', express.static('./deckbuilder'));
-app.use('/deckmanager', express.static('./deckmanager'));
+app.use('/compiled', express.static('./compiled'));
+app.use('/deckbuilder.html', express.static('./deckbuilder/index.html'));
 app.use('/', express.static('./deckmanager'));
 
 app.listen(port);
