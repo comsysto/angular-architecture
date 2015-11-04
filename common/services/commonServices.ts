@@ -1,8 +1,8 @@
-// import directives
+// import services
 import PageValueExtractorService from './PageValueExtractorService/PageValueExtractorService';
 import LocalStorageService from './LocalStorageService/LocalStorageService';
 
-// register directives
+// register services
 export default function registerServices(appName:string):void {
     'use strict';
 

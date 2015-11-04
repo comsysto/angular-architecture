@@ -1,5 +1,6 @@
 export const html:string = `
-    <footer style="text-align: center; padding: 20px;">
+    <footer>
+        <!-- common.coFooter -->
         <div class="container">
             <div class="row">
                 <div class="col-xs-12">
@@ -13,6 +14,5 @@ export const html:string = `
                 </div>
             </div>
         </div>
-
     </footer>
 `;

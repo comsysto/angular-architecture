@@ -91,13 +91,13 @@ module.exports = function (config) {
 
         // start Karma Test Runner
         new karma({
-            basePath: config.path,
+            basePath: __dirname,
             browsers: ['PhantomJS'],
             frameworks: ['jasmine', 'browserify'],
             files: files,
             // process tests that were transpiled for the CommonJS module system
             preprocessors: {
-                'build/js/tests/**/*.spec.js': ['browserify']
+                'build/**/tests/**/*.spec.js': ['browserify']
             },
             // mock away Angular as required
             browserify: {
@@ -122,6 +122,9 @@ module.exports = function (config) {
         var watchPath = [
             path.join(config.path, '**/*.ts')
         ];
+        if (config.appName !== 'common') {
+            watchPath = watchPath.concat(path.join(__dirname, 'compiled/common/**/*.js'));
+        }
 
         return watch(watchPath, function () {
             gulp.start('test');
