@@ -4,47 +4,82 @@ h2 {
 .add-deck {
     margin-top: 40px;
 }
-.deck-list .deck img {
-    height: 350px;
-    width: auto;
+.deck {
+    margin-bottom: 20px;
 }
-div.card-deck div.chosen-cards {
+.deck-preview {
+    margin: 30px 0;
+    position: relative;
+}
+.deck-back,
+.deck-back-more {
+    height: 250px;
+    margin-left: 10px;
+    width: auto;
+
+    -ms-transform: rotate(4deg);
+    -webkit-transform: rotate(4deg);
+    transform: rotate(4deg);
+}
+.deck-back-more {
+    -ms-transform: rotate(10deg);
+    -webkit-transform: rotate(10deg);
+    transform: rotate(10deg);
+
+    position: absolute;
+}
+.deck-front {
+    height: 270px;
+    margin-left: -10px;
+    margin-top: -10px;
+    position: absolute;
+    top: 0;
+    width: auto;
+    z-index: 10;
+
+    -ms-transform: rotate(-4deg);
+    -webkit-transform: rotate(-4deg);
+    transform: rotate(-4deg);
+}
+.card-deck .chosen-cards {
     border: #ccc dashed 5px;
     min-height: 150px;
     padding: 20px;
     text-align: center;
 }
-div.card-deck ul {
+.card-deck ul {
     list-style: none;
     margin: 0;
 }
-div.card-deck li {
+.card-deck li {
     float: left;
     margin-left: -30px;
     position: relative;
 }
-div.card-deck li img {
+.card-deck li img {
     height: 100px;
     width: auto;
 }
-div.card-deck li:hover img {
-    height: auto;
+.card-deck li:hover img {
+    height: 400px;
+    margin-top: -100px;
     position: absolute;
     z-index: 10;
 }
-div.card-list {
+.card-list {
     margin-top: 30px;
 }
-div.card p.selected img {
+.card p.selected img {
     opacity: 1;
 }
-div.card img {
+.card img {
     cursor: pointer;
-    height: 350px;
+    height: 260px;
     opacity: 0.5;
     width: auto;
 }
-div.card-list-filter {
+.card-list-filter,
+.back-to-root {
     margin-top: 40px;
 }
 
