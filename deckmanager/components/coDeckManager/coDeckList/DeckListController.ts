@@ -16,6 +16,10 @@ export default class DeckController {
         this.facadeService.setShowNewDeckForm(true);
     }
 
+    public editDeck(deck:IDeck):void {
+        this.facadeService.editDeck(deck);
+    }
+
     public deleteDeck(deck:IDeck):void {
         this.facadeService.deleteDeck(deck);
     }

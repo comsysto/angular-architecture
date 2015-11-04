@@ -20,6 +20,10 @@ export default class FacadeService implements IFacadeService {
         this.dataService.createNewDeck(name);
     }
 
+    public editDeck(deck:IDeck):void {
+        this.dataService.editDeck(deck);
+    }
+
     public deleteDeck(deck:IDeck):void {
         this.dataService.deleteDeck(deck);
     }

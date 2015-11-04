@@ -44,7 +44,16 @@ export default class DataService implements IDataService {
         this.setDecks(decks);
     }
 
+    public editDeck(deck:IDeck):void {
+        document.location.href = 'deckbuilder.html#id=' + deck.id;
+    }
+
     public deleteDeck(deck:IDeck):void {
+        let shouldDelete:boolean = confirm('Do you really want to delete this deck?');
+        if (!shouldDelete) {
+            return;
+        }
+
         let decks:IDeck[] = this.dataModel.getDecks();
         let deckId:number = decks.indexOf(deck, 0);
 
