@@ -4,9 +4,42 @@ h2 {
 .add-deck {
     margin-top: 40px;
 }
-.deck-list .deck img {
-    height: 350px;
+.deck {
+    margin-bottom: 20px;
+}
+.deck-preview {
+    margin: 30px 0;
+    position: relative;
+}
+.deck-back,
+.deck-back-more {
+    height: 250px;
+    margin-left: 10px;
     width: auto;
+
+    -ms-transform: rotate(4deg);
+    -webkit-transform: rotate(4deg);
+    transform: rotate(4deg);
+}
+.deck-back-more {
+    -ms-transform: rotate(10deg);
+    -webkit-transform: rotate(10deg);
+    transform: rotate(10deg);
+
+    position: absolute;
+}
+.deck-front {
+    height: 270px;
+    margin-left: -10px;
+    margin-top: -10px;
+    position: absolute;
+    top: 0;
+    width: auto;
+    z-index: 10;
+
+    -ms-transform: rotate(-4deg);
+    -webkit-transform: rotate(-4deg);
+    transform: rotate(-4deg);
 }
 .card-deck .chosen-cards {
     border: #ccc dashed 5px;
@@ -28,7 +61,8 @@ h2 {
     width: auto;
 }
 .card-deck li:hover img {
-    height: auto;
+    height: 400px;
+    margin-top: -100px;
     position: absolute;
     z-index: 10;
 }
@@ -40,7 +74,7 @@ h2 {
 }
 .card img {
     cursor: pointer;
-    height: 350px;
+    height: 260px;
     opacity: 0.5;
     width: auto;
 }

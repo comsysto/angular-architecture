@@ -9,7 +9,10 @@ npm install
 cd common
 gulp
 cd ..
-cd home
+cd deckmanager
+gulp
+cd ..
+cd deckbuilder
 gulp
 cd ..
 npm start

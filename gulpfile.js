@@ -1,6 +1,6 @@
 'use strict';
 
-// require all needed files
+// require all needed modules
 var gulp = require('gulp');
 var ts = require('gulp-typescript');
 var browserify = require('browserify');
@@ -14,6 +14,7 @@ var karma = require('karma').Server;
 var tslint = require('gulp-tslint');
 
 module.exports = function (config) {
+    // default project config
     var tsProject = ts.createProject({
         module: 'commonjs',
         target: 'es5',
@@ -23,7 +24,7 @@ module.exports = function (config) {
         noExternalResolve: false
     });
 
-    // Clean out build directory
+    // Clean out build directories
     gulp.task('clean', function () {
         del.sync([
             path.join(__dirname, 'build', config.appName),
@@ -108,6 +109,7 @@ module.exports = function (config) {
         }, done).start();
     });
 
+    // lint TypeScript code
     gulp.task('lint', function () {
         return gulp
             .src(path.join(config.path, '**/*.ts'))
@@ -120,9 +122,6 @@ module.exports = function (config) {
         var watchPath = [
             path.join(config.path, '**/*.ts')
         ];
-        if (config.appName !== 'common') {
-            watchPath = watchPath.concat(path.join(__dirname, 'compiled/common/**/*.js'));
-        }
 
         return watch(watchPath, function () {
             gulp.start('test');
