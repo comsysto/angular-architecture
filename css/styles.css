@@ -83,8 +83,14 @@ h2 {
     margin-top: 40px;
 }
 
+header .logo {
+    display: inline-block;
+}
+
 footer {
     font-size: 12px;
+    text-align: center;
+    padding: 20px;
 }
 
 footer .row {
