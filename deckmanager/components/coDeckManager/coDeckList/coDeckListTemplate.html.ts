@@ -20,7 +20,7 @@ export const html:string =
                                 <h3>{{ deck.name }}</h3>
                                 <p>Number of cards: {{ deck.cards.length }}</p>
                                 <p>
-                                    <img data-ng-src="/img/card-back-default.png"
+                                    <img data-ng-src="img/card-back-default.png"
                                         alt="{{ deck.name }}">
                                 </p>
                                 <p>

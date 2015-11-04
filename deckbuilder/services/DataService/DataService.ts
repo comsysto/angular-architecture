@@ -100,7 +100,7 @@ export default class DataService implements IDataService {
     }
 
     public backToManager():void {
-        this.$window.location.href = '..';
+        this.$window.location.href = '.';
     }
 
     private getCardList():ICard[] {

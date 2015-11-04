@@ -4,10 +4,13 @@ import {IDeck} from '../../../common/models/IDeck';
 import Deck from '../../../common/models/Deck';
 
 export default class DataService implements IDataService {
+    private $window:angular.IWindowService;
     private localStorageService:ILocalStorageService;
     private dataModel:DataModel;
 
-    constructor(localStorageService:ILocalStorageService) {
+    constructor($window:angular.IWindowService,
+                localStorageService:ILocalStorageService) {
+        this.$window = $window;
         this.localStorageService = localStorageService;
         this.dataModel = new DataModel();
 
@@ -45,7 +48,7 @@ export default class DataService implements IDataService {
     }
 
     public editDeck(deck:IDeck):void {
-        document.location.href = 'deckbuilder.html#id=' + deck.id;
+        this.$window.location.href = 'deckbuilder.html#id=' + deck.id;
     }
 
     public deleteDeck(deck:IDeck):void {
@@ -82,4 +85,4 @@ class DataModel {
     }
 }
 
-DataService.$inject = ['LocalStorageService'];
+DataService.$inject = ['$window', 'LocalStorageService'];
