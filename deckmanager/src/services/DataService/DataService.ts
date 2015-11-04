@@ -32,8 +32,24 @@ export default class DataService implements IDataService {
             id: id,
             name: name
         };
+        // check if there are any decks
         decks = decks ? decks.concat(newDeck) : [newDeck];
 
+        this.setDecks(decks);
+    }
+
+    public deleteDeck(deck:IDeck):void {
+        let decks:IDeck[] = this.dataModel.getDecks();
+        let deckId:number = decks.indexOf(deck, 0);
+
+        if (deckId !== undefined) {
+            decks.splice(deckId, 1);
+        }
+
+        this.setDecks(decks);
+    }
+
+    private setDecks(decks:IDeck[]):void {
         this.localStorageService.saveSettings<IDeck[]>('decks', decks);
         this.dataModel.setDecks(decks);
     }

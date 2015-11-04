@@ -16,6 +16,10 @@ export default class DeckController {
     public addDeck():void {
         this.facadeService.setShowNewDeckForm(true);
     }
+
+    public deleteDeck(deck:IDeck):void {
+        this.facadeService.deleteDeck(deck);
+    }
 }
 
 DeckController.$inject = ['FacadeService'];

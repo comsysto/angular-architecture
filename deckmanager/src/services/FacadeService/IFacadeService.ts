@@ -5,4 +5,5 @@ export interface IFacadeService {
     setShowNewDeckForm(isShown:boolean): void;
     getShowNewDeckForm(): boolean;
     createNewDeck(name:string): void;
+    deleteDeck(deck:IDeck): void;
 }

@@ -20,6 +20,10 @@ export default class FacadeService implements IFacadeService {
         this.dataService.createNewDeck(name);
     }
 
+    public deleteDeck(deck:IDeck):void {
+        this.dataService.deleteDeck(deck);
+    }
+
     public setShowNewDeckForm(isShown:boolean):void {
         this.uiStateService.setShowNewDeckForm(isShown);
     }

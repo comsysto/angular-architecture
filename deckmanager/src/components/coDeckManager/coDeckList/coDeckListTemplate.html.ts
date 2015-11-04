@@ -3,10 +3,10 @@ export const html:string =
         <div>
             <div class="deck-list container">
                 <div class="row">
-                    <div class="col-xs-12 col-sm-6">
+                    <div class="col-xs-6">
                         <h2>Deck list</h2>
                     </div>
-                    <div class="text-right col-xs-12 col-sm-6">
+                    <div class="text-right col-xs-6">
                         <span data-ng-click="deckListController.addDeck()"
                             class="add-deck btn btn-info">+ Add new deck</span>
                     </div>
@@ -17,10 +17,15 @@ export const html:string =
                             data-ng-click="deckListController.editDeck(deck)"
                             class="deck text-center col-xs-12 col-sm-6 col-md-4 col-lg-3">
                             <p>
-                                <img data-ng-src="/img/card-back-default.png"
-                                alt="{{ deck.name }}">
-                                <br>
-                                <span>{{ deck.name }}</span>
+                                <h3>{{ deck.name }}</h3>
+                                <p>
+                                    <img data-ng-src="/img/card-back-default.png"
+                                        alt="{{ deck.name }}">
+                                </p>
+                                <p>
+                                    <span data-ng-click="deckListController.deleteDeck(deck)"
+                                        class="btn btn-danger">Delete deck</span>
+                                </p>
                             </p>
                         </div>
                     </div>
