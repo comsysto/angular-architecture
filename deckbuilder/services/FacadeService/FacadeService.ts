@@ -1,6 +1,7 @@
 import {IFacadeService} from './IFacadeService';
 import {ICard} from '../../../common/models/ICard';
 import {IDataService} from '../DataService/IDataService';
+import {IDeck} from '../../../common/models/IDeck';
 
 export default class FacadeService implements IFacadeService {
     private dataService:IDataService;
@@ -17,6 +18,10 @@ export default class FacadeService implements IFacadeService {
         return this.dataService.getChosenCards();
     }
 
+    public getDeck():IDeck {
+        return this.dataService.getDeck();
+    }
+
     public toggleCard(card:ICard):void {
         this.dataService.toggleCard(card);
     }
@@ -25,6 +30,9 @@ export default class FacadeService implements IFacadeService {
         this.dataService.setFilter(filter);
     }
 
+    public backToManager():void {
+        this.dataService.backToManager();
+    }
 }
 
 FacadeService.$inject = ['DataService'];

@@ -2,18 +2,50 @@ import {IDataService} from './IDataService';
 import {IDeckBuilderPageValue} from '../../models/IDeckBuilderPageValue';
 import {IPageValueExtractorService} from '../../../common/services/PageValueExtractorService/IPageValueExtractorService';
 import {ICard} from '../../../common/models/ICard';
+import {IDeck} from '../../../common/models/IDeck';
+import {ILocalStorageService} from '../../../common/services/LocalStorageService/ILocalStorageService';
 
 export default class DataService implements IDataService {
+    private $window:angular.IWindowService;
     private pageValueExtractorService:IPageValueExtractorService;
+    private localStorageService:ILocalStorageService;
     private dataModel:DataModel;
 
-    constructor(pageValueExtractorService:IPageValueExtractorService) {
+    constructor($window:angular.IWindowService,
+                pageValueExtractorService:IPageValueExtractorService,
+                localStorageService:ILocalStorageService) {
+        this.$window = $window;
         this.pageValueExtractorService = pageValueExtractorService;
+        this.localStorageService = localStorageService;
         this.dataModel = new DataModel();
 
         // init data model
-        this.dataModel.setPageValue(this.pageValueExtractorService.getPageValue<IDeckBuilderPageValue>());
-        this.dataModel.setFilter('');
+        let pageValue:IDeckBuilderPageValue = this.pageValueExtractorService.getPageValue<IDeckBuilderPageValue>();
+        if (this.$window.location.hash) {
+            // very naive deck getting
+            // obviously a bad implementation with multi level arrays etc., but enough for a demo
+            let deckId:string = $window.location.hash.substr(4);
+            let decks:IDeck[] = this.localStorageService.loadSettings<IDeck[]>('decks');
+            let deck:IDeck = decks.filter((searchDeck:IDeck) => {
+                return searchDeck.id === deckId;
+            })[0];
+
+            this.dataModel.setDeck(deck);
+            pageValue.cards = pageValue.cards.map((card:ICard) => {
+                deck.cards.forEach((searchCard:ICard) => {
+                    // probably should have ids for cards and not compare by name
+                    if (searchCard.name === card.name) {
+                        card.selected = true;
+                    }
+                });
+
+                return card;
+            });
+            this.dataModel.setPageValue(pageValue);
+            this.dataModel.setFilter('');
+        } else {
+            this.backToManager();
+        }
     }
 
     public getFilteredCardList():ICard[] {
@@ -32,6 +64,10 @@ export default class DataService implements IDataService {
         });
     }
 
+    public getDeck():IDeck {
+        return this.dataModel.getDeck();
+    }
+
     public setFilter(filter:string):void {
         this.dataModel.setFilter(filter);
     }
@@ -45,7 +81,26 @@ export default class DataService implements IDataService {
             }
         });
 
+        let currentDeck:IDeck = this.dataModel.getDeck();
+        currentDeck.cards = cards.filter((currentCard:ICard) => {
+            return currentCard.selected;
+        });
+        this.dataModel.setDeck(currentDeck);
+        let decks:IDeck[] = this.localStorageService.loadSettings<IDeck[]>('decks');
+        decks = decks.map((searchDeck:IDeck) => {
+            if (searchDeck.id === currentDeck.id) {
+                return currentDeck;
+            }
+
+            return searchDeck;
+        });
+        this.localStorageService.saveSettings<IDeck[]>('decks', decks);
+
         this.dataModel.getPageValue().cards = cards;
+    }
+
+    public backToManager():void {
+        this.$window.location.href = '..';
     }
 
     private getCardList():ICard[] {
@@ -56,6 +111,7 @@ export default class DataService implements IDataService {
 class DataModel {
     private pageValue:IDeckBuilderPageValue;
     private filter:string;
+    private deck:IDeck;
 
     public getFilter():string {
         return this.filter;
@@ -72,6 +128,14 @@ class DataModel {
     public setPageValue(value:IDeckBuilderPageValue):void {
         this.pageValue = value;
     }
+
+    public getDeck():IDeck {
+        return this.deck;
+    }
+
+    public setDeck(deck:IDeck):void {
+        this.deck = deck;
+    }
 }
 
-DataService.$inject = ['PageValueExtractorService'];
+DataService.$inject = ['$window', 'PageValueExtractorService', 'LocalStorageService'];

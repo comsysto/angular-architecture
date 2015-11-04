@@ -3,7 +3,9 @@ export const html:string =
     <div>
         <div class="card-deck container">
             <div class="row">
-                <h2>Your chosen deck</h2>
+                <span data-ng-click="deckController.backToManager()"
+                    class="back-to-root btn btn-info pull-right">Back to deck manager</span>
+                <h2>Editing deck: {{ deckController.deck.name }}</h2>
                 <div class="chosen-cards clearfix">
                     <ul data-ng-if="deckController.getChosenCards().length > 0">
                         <li data-ng-repeat="card in deckController.getChosenCards()">

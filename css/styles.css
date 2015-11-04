@@ -8,43 +8,44 @@ h2 {
     height: 350px;
     width: auto;
 }
-div.card-deck div.chosen-cards {
+.card-deck .chosen-cards {
     border: #ccc dashed 5px;
     min-height: 150px;
     padding: 20px;
     text-align: center;
 }
-div.card-deck ul {
+.card-deck ul {
     list-style: none;
     margin: 0;
 }
-div.card-deck li {
+.card-deck li {
     float: left;
     margin-left: -30px;
     position: relative;
 }
-div.card-deck li img {
+.card-deck li img {
     height: 100px;
     width: auto;
 }
-div.card-deck li:hover img {
+.card-deck li:hover img {
     height: auto;
     position: absolute;
     z-index: 10;
 }
-div.card-list {
+.card-list {
     margin-top: 30px;
 }
-div.card p.selected img {
+.card p.selected img {
     opacity: 1;
 }
-div.card img {
+.card img {
     cursor: pointer;
     height: 350px;
     opacity: 0.5;
     width: auto;
 }
-div.card-list-filter {
+.card-list-filter,
+.back-to-root {
     margin-top: 40px;
 }
 
