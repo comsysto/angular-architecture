@@ -1,6 +1,7 @@
 export const html:string =
     `
         <div>
+            <!-- deckmanager.coDeckList -->
             <div class="deck-list container">
                 <div class="row">
                     <div class="col-xs-6">
@@ -30,9 +31,9 @@ export const html:string =
                                 </p>
                                 <p>
                                     <span data-ng-click="deckListController.editDeck(deck)"
-                                        class="btn btn-info">Edit deck</span>
+                                        class="edit-deck btn btn-info">Edit deck</span>
                                     <span data-ng-click="deckListController.deleteDeck(deck)"
-                                        class="btn btn-danger">Delete deck</span>
+                                        class="delete-deck btn btn-danger">Delete deck</span>
                                 </p>
                             </p>
                         </div>

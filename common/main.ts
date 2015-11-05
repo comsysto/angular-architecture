@@ -3,7 +3,7 @@ import * as angular from 'angular';
 import registerServices from './services/commonServices';
 import registerDirectives from './components/commonDirectives';
 
-const appName:string = 'common';
+export const appName:string = 'common';
 
 angular.module(appName, []);
 registerServices(appName);

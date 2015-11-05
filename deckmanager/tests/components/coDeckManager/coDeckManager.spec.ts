@@ -1,6 +1,6 @@
 import {appName} from '../../../main';
 
-describe('common.coFooter', () => {
+describe('deckManager.coDeckManager', () => {
     let $compile:angular.ICompileService,
         $rootScope:any;
 
@@ -14,10 +14,10 @@ describe('common.coFooter', () => {
     });
 
     it('should render the footer component', () => {
-        let template:angular.IAugmentedJQuery = angular.element('<div data-co-footer></div>');
+        let template:angular.IAugmentedJQuery = angular.element('<div data-co-deck-manager></div>');
         let element:angular.IAugmentedJQuery = $compile(template)($rootScope);
 
         $rootScope.$digest();
-        expect(element.html()).toContain('<!-- common.coFooter -->');
+        expect(element.html()).toContain('<!-- deckmanager.coDeckManager -->');
     });
 });

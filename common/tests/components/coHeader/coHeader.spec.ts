@@ -1,3 +1,5 @@
+import {appName} from '../../../main';
+
 describe('common.coFooter', () => {
     let $compile:angular.ICompileService,
         $rootScope:any,
@@ -5,7 +7,7 @@ describe('common.coFooter', () => {
         element:angular.IAugmentedJQuery;
 
     beforeEach(() => {
-        angular.mock.module('common');
+        angular.mock.module(appName);
 
         inject((_$compile_:ng.ICompileService, _$rootScope_:ng.IRootScopeService) => {
             $compile = _$compile_;

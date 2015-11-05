@@ -52,15 +52,17 @@ export default class DataService implements IDataService {
     }
 
     public deleteDeck(deck:IDeck):void {
-        let shouldDelete:boolean = confirm('Do you really want to delete this deck?');
+        let shouldDelete:boolean = this.$window.confirm('Do you really want to delete this deck?');
         if (!shouldDelete) {
             return;
         }
 
         let decks:IDeck[] = this.dataModel.getDecks();
-        let deckId:number = decks.indexOf(deck, 0);
+        let deckId:number = decks.map(
+            (searchDeck:IDeck) => { return searchDeck.id; }
+        ).indexOf(deck.id);
 
-        if (deckId !== undefined) {
+        if (deckId !== -1) {
             decks.splice(deckId, 1);
         }
 
