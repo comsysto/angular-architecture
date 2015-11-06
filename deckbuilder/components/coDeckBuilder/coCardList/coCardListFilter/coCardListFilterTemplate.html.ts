@@ -1,6 +1,7 @@
 export const html:string =
     `
     <div>
+        <!-- deckbuilder.coCardListFilter -->
         <div class="card-list-filter">
             <p>
                 Filter cards by name:

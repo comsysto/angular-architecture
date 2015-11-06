@@ -10,7 +10,6 @@
         "class-name": true,
         "comment-format": [
             true,
-            "check-space",
             "check-lowercase"
         ],
         "curly": true,

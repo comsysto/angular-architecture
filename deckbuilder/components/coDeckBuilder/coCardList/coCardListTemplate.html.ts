@@ -1,6 +1,7 @@
 export const html:string =
     `
     <div>
+        <!-- deckbuilder.coCardList -->
         <div class="container">
             <div class="row">
                 <div class="col-xs-6">
@@ -14,7 +15,7 @@ export const html:string =
                 <div data-ng-repeat="card in cardListController.getCardList()"
                     data-ng-click="cardListController.toggleCard(card)"
                     class="card text-center col-xs-12 col-sm-4 col-md-3 col-lg-2">
-                    <p data-ng-class="{ 'selected': card.selected }">
+                    <p data-ng-class="{ 'selected': card.selected }" class="card-item">
                         <img data-ng-src="img/cards/{{ card.image }}"
                         alt="{{ card.name }}">
                     </p>

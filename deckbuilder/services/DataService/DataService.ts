@@ -24,6 +24,7 @@ export default class DataService implements IDataService {
         if (this.$window.location.hash) {
             // very naive deck getting
             // obviously a bad implementation with multi level arrays etc., but enough for a demo
+            // it would probably also be better not to do all of this logic in the constructor because it make testing harder
             let deckId:string = $window.location.hash.substr(4);
             let decks:IDeck[] = this.localStorageService.loadSettings<IDeck[]>('decks');
             let deck:IDeck = decks.filter((searchDeck:IDeck) => {
@@ -96,7 +97,7 @@ export default class DataService implements IDataService {
         });
         this.localStorageService.saveSettings<IDeck[]>('decks', decks);
 
-        this.dataModel.getPageValue().cards = cards;
+        this.dataModel.setCards(cards);
     }
 
     public backToManager():void {
@@ -127,6 +128,14 @@ class DataModel {
 
     public setPageValue(value:IDeckBuilderPageValue):void {
         this.pageValue = value;
+    }
+
+    public getCards(cards:ICard[]):void {
+        this.getPageValue().cards;
+    }
+
+    public setCards(cards:ICard[]):void {
+        this.getPageValue().cards = cards;
     }
 
     public getDeck():IDeck {
