@@ -10,6 +10,10 @@ export default class Card implements ICard {
     public image:string;
     public selected:boolean;
 
+    /**
+     * Create a Card model.
+     * TODO: All of these attributes could be used as a way to filter or sort cards.
+     */
     constructor(name:string, cost:number, rarity:CardRarityEnum, image:string, attack?:number, hp?:number, selected?:boolean) {
         this.name = name;
         this.cost = cost;

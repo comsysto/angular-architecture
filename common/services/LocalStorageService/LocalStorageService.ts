@@ -9,6 +9,10 @@ export default class LocalStorageService implements ILocalStorageService {
         localStorage.setItem(key, stringData);
     }
 
+    /**
+     * Load settings from local storage.
+     * TODO: It would be wise to check if what we're getting from local storage is a serializable object.
+     */
     public loadSettings<T>(key:string):T {
         let objectData:string = localStorage.getItem(key);
         if (objectData) {
