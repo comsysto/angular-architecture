@@ -24,6 +24,7 @@ describe('deckmanager.DataService', () => {
         } as angular.IWindowService;
         $windowSpy = spyOn($window, 'confirm');
 
+        // TODO: If the initialisation of the service was put away into a method, this block would be easier to write.
         localStorageMock = {
             loadSettings: ():void => {
             },

@@ -2,22 +2,13 @@ import NewDeckController from '../../../../components/coDeckManager/coNewDeck/Ne
 import {IFacadeService} from '../../../../services/FacadeService/IFacadeService';
 import {IDeck} from '../../../../../common/models/IDeck';
 import Deck from '../../../../../common/models/Deck';
+import {facadeServiceMock} from '../../../mocks';
 
 describe('deckmanager.NewDeckController', () => {
     let newDeckController:NewDeckController,
-        facadeServiceMock:IFacadeService,
         facadeServiceSpy:jasmine.Spy;
 
     beforeEach(() => {
-        facadeServiceMock = {
-            createNewDeck: ():any => {
-            },
-            getShowNewDeckForm: ():void  => {
-            },
-            setShowNewDeckForm: ():void => {
-            }
-        } as any;
-
         newDeckController = new NewDeckController(facadeServiceMock);
     });
 

@@ -12,6 +12,7 @@ export default class DeckController {
         return this.facadeService.getDecks();
     }
 
+    // TODO: The following three methods should probably be in its own component, this one is getting too large.
     public addDeck():void {
         this.facadeService.setShowNewDeckForm(true);
     }

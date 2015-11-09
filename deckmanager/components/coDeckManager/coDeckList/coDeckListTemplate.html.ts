@@ -17,6 +17,7 @@ export const html:string =
                     <div data-ng-if="deckListController.getDecks().length > 0">
                         <div data-ng-repeat="deck in deckListController.getDecks() track by deck.id"
                             class="deck text-center col-xs-12 col-sm-4 col-md-3">
+                            <!-- TODO: This should probably be made as a separate component, this one is getting too large -->
                             <p>
                                 <h4>{{ deck.name }}</h4>
                                 <p>Number of cards: {{ deck.cards.length }}</p>

@@ -8,6 +8,7 @@ function coCardListFilter():angular.IDirective {
         controller: CardListFilterController,
         controllerAs: 'cardListFilterController',
         replace: true,
+        scope: {},
         template: html
     };
 }

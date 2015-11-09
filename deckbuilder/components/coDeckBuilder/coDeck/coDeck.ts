@@ -8,6 +8,7 @@ function coDeck():angular.IDirective {
         controller: DeckController,
         controllerAs: 'deckController',
         replace: true,
+        scope: {},
         template: html
     };
 }

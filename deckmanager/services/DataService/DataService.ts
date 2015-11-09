@@ -15,6 +15,7 @@ export default class DataService implements IDataService {
         this.dataModel = new DataModel();
 
         // init data model
+        // TODO: Putting this into a method would be a wiser idea because then it can be easily mocked away
         let decks:IDeck[] = this.localStorageService.loadSettings<IDeck[]>('decks');
         if (decks) {
             let typedDecks:IDeck[] = decks.map((deck:IDeck) => {
@@ -39,6 +40,7 @@ export default class DataService implements IDataService {
 
     public createNewDeck(name:string):void {
         let decks:IDeck[] = this.dataModel.getDecks();
+        // TODO: A UUID may be better than ticks
         let id:string = new Date().getTime().toString();
         let newDeck:IDeck = new Deck(id, name, []);
         // check if there are any decks

@@ -8,6 +8,7 @@ function coNewDeck():angular.IDirective {
         controller: NewDeckController,
         controllerAs: 'newDeckController',
         replace: true,
+        scope: {},
         template: html
     };
 }

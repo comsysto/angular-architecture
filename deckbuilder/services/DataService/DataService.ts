@@ -25,6 +25,7 @@ export default class DataService implements IDataService {
             // very naive deck getting
             // obviously a bad implementation with multi level arrays etc., but enough for a demo
             // it would probably also be better not to do all of this logic in the constructor because it make testing harder
+            // TODO: Fix the above
             let deckId:string = $window.location.hash.substr(4);
             let decks:IDeck[] = this.localStorageService.loadSettings<IDeck[]>('decks');
             let deck:IDeck = decks.filter((searchDeck:IDeck) => {
@@ -35,6 +36,7 @@ export default class DataService implements IDataService {
             pageValue.cards = pageValue.cards.map((card:ICard) => {
                 deck.cards.forEach((searchCard:ICard) => {
                     // probably should have ids for cards and not compare by name
+                    // TODO: Implement an ID as part of the card model
                     if (searchCard.name === card.name) {
                         card.selected = true;
                     }

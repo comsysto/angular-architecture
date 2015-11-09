@@ -102,12 +102,6 @@ describe('deckmanager.DataService', () => {
         it('should set initial deck', () => {
             expect(dataService.getDeck()).toBe(selectedDeck);
         });
-
-        it('should toggle card', () => {
-            //dataService.toggleCard(card3);
-            //expect(dataService.getDeck().cards.length).toBe(1);
-            //expect(dataService.getDeck().cards).toBe([card2]);
-        });
     });
 
 

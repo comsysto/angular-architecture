@@ -9,8 +9,7 @@
         "ban": false,
         "class-name": true,
         "comment-format": [
-            true,
-            "check-lowercase"
+            false
         ],
         "curly": true,
         "eofline": true,

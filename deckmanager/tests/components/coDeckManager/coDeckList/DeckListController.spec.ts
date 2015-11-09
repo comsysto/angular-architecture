@@ -2,24 +2,13 @@ import DeckListController from '../../../../components/coDeckManager/coDeckList/
 import {IFacadeService} from '../../../../services/FacadeService/IFacadeService';
 import {IDeck} from '../../../../../common/models/IDeck';
 import Deck from '../../../../../common/models/Deck';
+import {facadeServiceMock} from '../../../mocks';
 
 describe('deckmanager.DeckListController', () => {
     let deckListController:DeckListController,
-        facadeServiceMock:IFacadeService,
         facadeServiceSpy:jasmine.Spy;
 
     beforeEach(() => {
-        facadeServiceMock = {
-            deleteDeck: ():void => {
-            },
-            editDeck: ():void => {
-            },
-            getDecks: ():any => {
-            },
-            setShowNewDeckForm: ():void  => {
-            }
-        } as any;
-
         deckListController = new DeckListController(facadeServiceMock);
     });
 
